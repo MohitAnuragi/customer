@@ -19,10 +19,6 @@ import com.example.customerapp.model.Location
 import com.example.customerapp.viewmodel.BookingViewModel
 import com.example.customerapp.viewmodel.LocationsState
 
-/**
- * Home Screen - Displays location cards in horizontal scroll (LazyRow)
- * Matches Figma design with Kolkata and Bombay cards
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
@@ -31,7 +27,6 @@ fun HomeScreen(
 ) {
     val locationsState by bookingViewModel.locationsState.collectAsState()
 
-    // Load locations on first composition
     LaunchedEffect(Unit) {
         bookingViewModel.loadLocations()
     }
@@ -107,9 +102,6 @@ private fun ErrorContent(message: String, onRetry: () -> Unit) {
     }
 }
 
-/**
- * Location cards in horizontal scroll - matches Figma design
- */
 @Composable
 private fun LocationCardsContent(
     locations: List<Location>,
@@ -153,9 +145,6 @@ private fun LocationCardsContent(
     }
 }
 
-/**
- * Individual location card - Figma-style design
- */
 @Composable
 private fun LocationCard(
     location: Location,
@@ -210,7 +199,6 @@ private fun LocationCard(
                 maxLines = 2
             )
 
-            // View button
             Button(
                 onClick = onClick,
                 modifier = Modifier.fillMaxWidth(),

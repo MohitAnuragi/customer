@@ -4,12 +4,7 @@ import android.content.Context
 import android.util.Log
 import kotlinx.coroutines.delay
 
-/**
- * Repository handling Email OTP Authentication
- *
- * Simplified implementation for demo purposes
- * Uses simulated OTP (123456) for testing
- */
+
 class EmailLinkAuthRepository(private val context: Context) {
 
     companion object {
@@ -17,10 +12,7 @@ class EmailLinkAuthRepository(private val context: Context) {
         private const val DEMO_OTP = "123456"
     }
 
-    /**
-     * Send verification code
-     * Simulates sending OTP to email
-     */
+
     suspend fun sendSignInLink(email: String): Result<Unit> {
         return try {
             Log.d(TAG, "Sending verification code to: $email")
@@ -32,10 +24,7 @@ class EmailLinkAuthRepository(private val context: Context) {
         }
     }
 
-    /**
-     * Verify OTP code
-     * Accepts "123456" for demo
-     */
+
     suspend fun verifyOtp(otp: String): Result<Unit> {
         return try {
             Log.d(TAG, "Verifying OTP")

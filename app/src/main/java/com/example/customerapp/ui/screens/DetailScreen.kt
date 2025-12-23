@@ -28,12 +28,6 @@ import com.example.customerapp.model.BookingState
 import com.example.customerapp.ui.theme.*
 import com.example.customerapp.viewmodel.BookingViewModel
 
-/**
- * Location Details Screen - Exact Figma match with 3 states
- * 1. Book Now (initial state)
- * 2. Requesting... (loading state)
- * 3. Accepted (success state)
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreen(
@@ -227,7 +221,6 @@ fun DetailScreen(
 
                     Spacer(modifier = Modifier.height(20.dp))
 
-                    // About Destination section
                     Text(
                         text = "About Destination",
                         fontSize = 18.sp,

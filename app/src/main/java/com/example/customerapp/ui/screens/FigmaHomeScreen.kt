@@ -32,10 +32,6 @@ import com.example.customerapp.R
 import com.example.customerapp.viewmodel.LocationsState
 
 
-/**
- * Home Screen - Figma design match
- * Shows "Explore the Beautiful world!" header with location cards
- */
 @Composable
 fun FigmaHomeScreen(
     bookingViewModel: BookingViewModel,
@@ -143,7 +139,6 @@ fun FigmaHomeScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Best Destination section
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -166,7 +161,6 @@ fun FigmaHomeScreen(
             }
         }
 
-        // Locations content
         when (val state = locationsState) {
             is LocationsState.Loading -> {
                 Box(
@@ -202,9 +196,6 @@ fun FigmaHomeScreen(
     }
 }
 
-/**
- * Horizontal scrolling location cards
- */
 @Composable
 private fun LocationCardsSection(
     locations: List<Location>,
@@ -223,9 +214,7 @@ private fun LocationCardsSection(
     }
 }
 
-/**
- * Individual location card - Exact Figma design from image
- */
+
 @Composable
 private fun LocationCard(
     location: Location,

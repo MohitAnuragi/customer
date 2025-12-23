@@ -9,21 +9,13 @@ import com.example.customerapp.auth.ui.EmailInputScreen
 import com.example.customerapp.auth.ui.OtpVerificationScreen
 import com.example.customerapp.auth.viewmodel.EmailLinkAuthViewModel
 
-/**
- * Navigation routes for authentication flow
- */
+
 sealed class AuthRoute(val route: String) {
     object EmailInput : AuthRoute("email_input")
     object OtpVerification : AuthRoute("otp_verification")
 }
 
-/**
- * Authentication navigation graph
- * Handles email input → OTP verification flow
- *
- * @param navController Navigation controller
- * @param onAuthSuccess Callback when authentication is successful
- */
+
 @Composable
 fun AuthNavigation(
     navController: NavHostController,

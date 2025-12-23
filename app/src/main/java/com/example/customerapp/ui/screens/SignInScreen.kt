@@ -20,10 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.customerapp.ui.theme.*
 
-/**
- * Sign In Screen - Figma design match
- * Simple email input with sign in button
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignInScreen(
@@ -128,7 +124,7 @@ fun SignInScreen(
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            // Sign In button
+
             Button(
                 onClick = onSignIn,
                 modifier = Modifier
@@ -149,7 +145,7 @@ fun SignInScreen(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            // Don't have an account text
+
             Row(
                 modifier = Modifier.padding(bottom = 32.dp),
                 horizontalArrangement = Arrangement.Center

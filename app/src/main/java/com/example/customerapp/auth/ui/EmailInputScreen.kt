@@ -22,16 +22,7 @@ import com.example.customerapp.auth.model.LoginState
 import com.example.customerapp.auth.viewmodel.EmailLinkAuthViewModel
 import com.example.customerapp.ui.theme.*
 
-/**
- * Modern Email Input Screen
- *
- * Features:
- * - Clean Material 3 design
- * - Email validation
- * - Loading states
- * - Error handling
- * - "Send OTP" button that triggers email link
- */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EmailInputScreen(
@@ -90,9 +81,7 @@ fun EmailInputScreen(
     }
 }
 
-/**
- * Email input content composable
- */
+
 @Composable
 private fun EmailInputContent(
     email: String,

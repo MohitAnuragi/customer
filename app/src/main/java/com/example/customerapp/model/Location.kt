@@ -1,9 +1,5 @@
 package com.example.customerapp.model
 
-/**
- * Data class representing a Location entity
- * Locations: Kolkata and Bombay (as per assignment)
- */
 data class Location(
     val id: String = "",
     val name: String = "",
@@ -12,7 +8,6 @@ data class Location(
     val isActive: Boolean = true
 ) {
     companion object {
-        // Fixed locations as per assignment
         val KOLKATA = Location(
             id = "kolkata",
             name = "Kolkata",

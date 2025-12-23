@@ -23,10 +23,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.customerapp.ui.theme.*
 
-/**
- * OTP Verification Screen - Figma design match
- * Shows 4 OTP input boxes with verification
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VerificationScreen(
@@ -127,7 +123,7 @@ fun VerificationScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // OTP code info (for testing)
+
             Text(
                 text = "OTP code sent to your email",
                 fontSize = 14.sp,
@@ -137,7 +133,7 @@ fun VerificationScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Timer text
+
             Row(
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
@@ -157,7 +153,7 @@ fun VerificationScreen(
 
             Spacer(modifier = Modifier.height(48.dp))
 
-            // Verify button
+
             Button(
                 onClick = { onVerify(otp) },
                 modifier = Modifier
@@ -195,9 +191,7 @@ fun VerificationScreen(
     }
 }
 
-/**
- * Single OTP input box
- */
+
 @Composable
 fun OTPBox(
     value: String,

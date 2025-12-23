@@ -27,11 +27,6 @@ import androidx.compose.ui.unit.sp
 import com.example.customerapp.ui.theme.*
 import com.example.customerapp.R
 
-
-/**
- * Onboarding Screen - Matches Figma design
- * Shows sailboat illustration with "Life is short and the world is wide" message
- */
 @Composable
 fun OnboardingScreen(
     onGetStarted: () -> Unit
@@ -50,12 +45,6 @@ fun OnboardingScreen(
         ) {
             Spacer(modifier = Modifier.height(40.dp))
 
-            // Sailboat illustration
-//            SailboatIllustration(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .height(350.dp)
-//            )
             Image(
                 painter = painterResource(id = R.drawable.first),
                 contentDescription = "Sailboat illustration",
@@ -100,7 +89,7 @@ fun OnboardingScreen(
                     lineHeight = 40.sp
                 )
 
-                // Subtitle
+
                 Text(
                     text = "At Friends tours and travel, we customize\nreliable and trutworthy educational tours to\ndestinations all over the world",
                     fontSize = 14.sp,
@@ -112,7 +101,7 @@ fun OnboardingScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Get Started button
+
             Button(
                 onClick = onGetStarted,
                 modifier = Modifier
@@ -159,9 +148,6 @@ fun OnboardingScreen(
     }
 }
 
-/**
- * Sailboat illustration matching Figma design
- */
 @Composable
 fun SailboatIllustration(modifier: Modifier = Modifier) {
     Canvas(modifier = modifier) {

@@ -29,18 +29,6 @@ import com.example.customerapp.auth.model.LoginState
 import com.example.customerapp.auth.viewmodel.EmailLinkAuthViewModel
 import com.example.customerapp.ui.theme.*
 
-/**
- * Modern OTP Verification Screen
- *
- * Features:
- * - 6 separate OTP input boxes
- * - Auto-focus to next box on input
- * - Auto-focus to previous box on delete
- * - Auto-verify when all 6 digits filled
- * - 60-second countdown timer
- * - Resend OTP functionality
- * - Loading and error states
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OtpVerificationScreen(
@@ -206,9 +194,6 @@ fun OtpVerificationScreen(
     }
 }
 
-/**
- * 6 OTP Input Boxes with auto-focus behavior
- */
 @Composable
 private fun OtpInputBoxes(
     otpState: com.example.customerapp.auth.model.OtpState,
@@ -218,7 +203,6 @@ private fun OtpInputBoxes(
 ) {
     val focusRequesters = remember { List(6) { FocusRequester() } }
 
-    // Auto-focus first box on initial load
     LaunchedEffect(Unit) {
         focusRequesters[0].requestFocus()
     }
@@ -233,7 +217,6 @@ private fun OtpInputBoxes(
                 onValueChange = { newValue ->
                     if (newValue.length <= 1 && newValue.all { it.isDigit() }) {
                         onOtpChange(index, newValue)
-                        // Move to next box if digit entered
                         if (newValue.isNotEmpty() && index < 5) {
                             focusRequesters[index + 1].requestFocus()
                         }
@@ -241,7 +224,6 @@ private fun OtpInputBoxes(
                 },
                 onBackspace = {
                     if (digit.isEmpty() && index > 0) {
-                        // Move to previous box on backspace if current is empty
                         focusRequesters[index - 1].requestFocus()
                     } else {
                         onOtpClear(index)
@@ -255,9 +237,7 @@ private fun OtpInputBoxes(
     }
 }
 
-/**
- * Single OTP input box with focus handling
- */
+
 @Composable
 private fun OtpInputBox(
     value: String,
@@ -328,9 +308,6 @@ private fun OtpInputBox(
     }
 }
 
-/**
- * Timer and Resend OTP section
- */
 @Composable
 private fun TimerAndResendSection(
     timerState: com.example.customerapp.auth.model.TimerState,
@@ -350,7 +327,7 @@ private fun TimerAndResendSection(
                 fontWeight = FontWeight.Medium
             )
         } else {
-            // Show resend button when timer expires
+
             Text(
                 text = "Didn't receive the code?",
                 fontSize = 14.sp,

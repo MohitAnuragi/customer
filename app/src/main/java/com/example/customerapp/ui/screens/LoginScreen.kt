@@ -14,13 +14,6 @@ import androidx.compose.ui.unit.dp
 import com.example.customerapp.viewmodel.AuthState
 import com.example.customerapp.viewmodel.AuthViewModel
 
-/**
- * Login screen composable
- * Handles email input and OTP verification flow
- *
- * @param authViewModel ViewModel for authentication
- * @param onLoginSuccess Callback when login is successful
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
@@ -82,9 +75,6 @@ fun LoginScreen(
     }
 }
 
-/**
- * Email input section composable
- */
 @Composable
 private fun EmailInputSection(
     email: String,
@@ -147,10 +137,6 @@ private fun EmailInputSection(
         }
     }
 }
-
-/**
- * OTP input section composable
- */
 @Composable
 private fun OtpInputSection(
     generatedOtp: String,
@@ -179,7 +165,7 @@ private fun OtpInputSection(
             textAlign = TextAlign.Center
         )
 
-        // Display the OTP for testing purposes
+
         Card(
             modifier = Modifier.padding(vertical = 8.dp),
             colors = CardDefaults.cardColors(
@@ -238,9 +224,6 @@ private fun OtpInputSection(
     }
 }
 
-/**
- * Loading indicator section
- */
 @Composable
 private fun LoadingSection() {
     Column(

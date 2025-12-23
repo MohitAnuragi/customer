@@ -17,15 +17,11 @@ import com.example.customerapp.ui.theme.PrimaryLight
 import com.example.customerapp.ui.theme.TextWhite
 import kotlinx.coroutines.delay
 
-/**
- * Splash Screen - Matches Figma design exactly
- * Blue gradient background with "Travenor" branding
- */
 @Composable
 fun SplashScreen(
     onNavigateToOnboarding: () -> Unit
 ) {
-    // Auto-navigate after 2.5 seconds
+
     LaunchedEffect(Unit) {
         delay(2500)
         onNavigateToOnboarding()
@@ -45,7 +41,6 @@ fun SplashScreen(
             ),
         contentAlignment = Alignment.Center
     ) {
-        // Travenor logo text
         Text(
             text = "Travenor",
             fontSize = 40.sp,

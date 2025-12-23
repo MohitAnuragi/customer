@@ -9,19 +9,15 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-/**
- * AuthViewModel - Handles authentication with Firebase
- * Following MVVM architecture - no business logic in UI
- */
+
 class AuthViewModel : ViewModel() {
 
     private val repository = FirebaseRepository()
 
-    // Authentication state
+
     private val _authState = MutableStateFlow<AuthState>(AuthState.EmailInput)
     val authState: StateFlow<AuthState> = _authState.asStateFlow()
 
-    // Customer data
     private val _customerId = MutableStateFlow<String?>(null)
     val customerId: StateFlow<String?> = _customerId.asStateFlow()
 
@@ -34,17 +30,11 @@ class AuthViewModel : ViewModel() {
     private val _errorMessage = MutableStateFlow<String?>(null)
     val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
 
-    /**
-     * Update email value
-     */
     fun updateEmail(newEmail: String) {
         _email.value = newEmail
         _errorMessage.value = null
     }
 
-    /**
-     * Request OTP - generates OTP and stores in Firebase
-     */
     fun requestOtp() {
         val emailValue = _email.value.trim()
 
@@ -70,9 +60,6 @@ class AuthViewModel : ViewModel() {
         }
     }
 
-    /**
-     * Verify OTP against Firebase stored value
-     */
     fun verifyOtp(enteredOtp: String) {
         if (enteredOtp.isBlank()) {
             _errorMessage.value = "Please enter the OTP"
@@ -85,7 +72,6 @@ class AuthViewModel : ViewModel() {
             repository.verifyOTP(_email.value, enteredOtp).fold(
                 onSuccess = { isValid ->
                     if (isValid) {
-                        // Generate customer ID and save to Firebase
                         val customerId = generateCustomerId(_email.value)
                         _customerId.value = customerId
 
@@ -117,23 +103,15 @@ class AuthViewModel : ViewModel() {
         }
     }
 
-    /**
-     * Generate customer ID from email
-     */
     private fun generateCustomerId(email: String): String {
         return "customer_${email.substringBefore("@").replace(".", "_")}_${System.currentTimeMillis()}"
     }
 
-    /**
-     * Clear error message
-     */
     fun clearError() {
         _errorMessage.value = null
     }
 
-    /**
-     * Logout
-     */
+
     fun logout() {
         _authState.value = AuthState.EmailInput
         _customerId.value = null
@@ -142,10 +120,6 @@ class AuthViewModel : ViewModel() {
         _errorMessage.value = null
     }
 }
-
-/**
- * Sealed class for authentication states
- */
 sealed class AuthState {
     object EmailInput : AuthState()
     object OtpInput : AuthState()

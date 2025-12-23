@@ -16,10 +16,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.customerapp.viewmodel.BookingViewModel
 
-/**
- * Location Details Screen - Shows location info with "Book Now" button
- * Creates booking in Firebase on button click
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LocationDetailsScreen(

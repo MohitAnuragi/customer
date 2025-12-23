@@ -1,9 +1,5 @@
 package com.example.customerapp.model
 
-/**
- * Sealed class representing booking status states
- * Used for type-safe state management in ViewModels
- */
 sealed class BookingState {
     object Idle : BookingState()
     object Pending : BookingState()
@@ -12,9 +8,6 @@ sealed class BookingState {
     data class Error(val message: String) : BookingState()
 }
 
-/**
- * Customer data class for Firebase
- */
 data class Customer(
     val customerId: String = "",
     val email: String = ""

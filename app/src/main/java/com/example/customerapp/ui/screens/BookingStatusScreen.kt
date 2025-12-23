@@ -19,10 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.example.customerapp.model.BookingState
 import com.example.customerapp.viewmodel.BookingViewModel
 
-/**
- * Booking Status Screen - Shows REAL-TIME booking status from Firebase
- * Updates instantly when owner changes status (no polling, no refresh)
- */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BookingStatusScreen(
@@ -31,7 +28,7 @@ fun BookingStatusScreen(
 ) {
     val bookingState by bookingViewModel.bookingState.collectAsState()
 
-    // Auto-navigate when state becomes Idle (after showing result)
+
     LaunchedEffect(bookingState) {
         if (bookingState is BookingState.Idle) {
             onNavigateBack()
@@ -68,16 +65,13 @@ fun BookingStatusScreen(
                     ErrorContent(message = state.message)
                 }
                 is BookingState.Idle -> {
-                    // Will trigger navigation
+
                 }
             }
         }
     }
 }
 
-/**
- * Pending state - waiting for owner response
- */
 @Composable
 private fun PendingContent() {
     Column(
@@ -121,9 +115,6 @@ private fun PendingContent() {
     }
 }
 
-/**
- * Accepted state - booking accepted by owner
- */
 @Composable
 private fun AcceptedContent() {
     var visible by remember { mutableStateOf(false) }
@@ -191,9 +182,6 @@ private fun AcceptedContent() {
     }
 }
 
-/**
- * Rejected state - booking rejected by owner
- */
 @Composable
 private fun RejectedContent() {
     var visible by remember { mutableStateOf(false) }
@@ -261,9 +249,6 @@ private fun RejectedContent() {
     }
 }
 
-/**
- * Error state
- */
 @Composable
 private fun ErrorContent(message: String) {
     Column(
